@@ -1,0 +1,41 @@
+/* Style the Webpage */
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;         /* Browser selects suitable margin for page. */
+    flex-wrap: wrap;
+}
+
+/* Score and Result Style */
+#result{
+    flex: 1 100%;
+}
+
+#round-message, #score{
+    text-align: center;
+}
+
+#round-message{
+    font-size: 1.5em;       /* em: size unit relative to font on page. */
+    text-transform: capitalize;
+}
+
+#score {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* PLayer Style */
+.players {
+
+}
+
+/* Player 2 Scissor Rotation Choice */
+
+/* Reset Button */

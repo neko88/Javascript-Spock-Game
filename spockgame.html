@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+
+<!--
+CLASSES:
+available-option, selected-option, option
+players, name, points, option
+reset
+
+IDs:
+result, score,
+player1, player1-score,
+player2, player2-score,
+-->
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,10 +30,13 @@
         <p id="round-message">Choose your option</p>
     </section>
 
-    <!-- Player Area -->
+    <!-- Player 1 Option -->
     <section id="player1" class="players">
         <span class="name">Player 1</span>
         <div class="selected-option">
+            <span class ="option" data-index="0"></span>
+        </div>
+        <div class="available-option">
             <span class="option" data-index="0">
                 <!-- Insert image for option-->
                 <!-- img src="" alt="Lizard" title="Lizard"/> -->
@@ -43,5 +60,34 @@
         </div>
     </section>
 
+    <!-- Player 2 Option -->
+    <section id="player2" class="players">
+        <span class="name">Player 2</span>
+        <div class="selected-option">
+            <span class="option" data-index="0"></span>
+            </div>
+        <div class="available-option">
+            <span class="option" data-index="0">
+                <!-- Insert image for option-->
+            </span>
+            <span class="option" data-index="1">
+                <!-- Insert image for option-->
+            </span>
+            <span class="option" data-index="2">
+                <!-- Insert image for option-->
+            </span>
+            <span class="option" data-index="3">
+                <!-- Insert image for option-->
+            </span>
+            <span class="option" data-index="4">
+                <!-- Insert image for option-->
+            </span>
+        </div>
+    </section>
+
+    <!-- Reset Button -->
+    <span class="reset"><span>Reset</span></span>
+
 </body>
 </html>
+
