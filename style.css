@@ -17,11 +17,8 @@ main {
     flex: 1 100%;
 }
 
-#round-message, #score{
-    text-align: center;
-}
-
 #round-message{
+    text-align: center;
     font-size: 1.5em;       /* em: size unit relative to font on page. */
     text-transform: capitalize;
 }
@@ -29,13 +26,102 @@ main {
 #score {
     font-size: 3em;
     margin-bottom: 10px;
+    text-align: center;
 }
 
-/* PLayer Style */
+/* PLayer Text Area Style */
 .players {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 10px 25px;
+}
 
+.selected-option,
+.name,
+.available-option{
+    display: inline-flex;
+    flex: 1 100%;
+    padding: 15px 0;
+}
+
+.selected-option,
+.name{
+    justify-content: center;
+}
+
+.name{
+    font-size: 1.8em;
+    color: #f44336;
+    font-weight: 600;
+}
+
+/* Available Options Style */
+.available-option{
+    justify-content: space-between;
+}
+.option{
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    padding: 10px;
+    border-radius: 50%;  /* Styles the buttons as round shape */
+    border: 1px solid #f44336;
+    box-shadow: 0 0 3px;
+    cursor: pointer;
+}
+
+.option.active{
+    border-color: blue;
+}
+
+.option:hover > img {
+    transform: scale(1.1);
+}
+
+.option > img{
+    width: 70%;
+    transition: all 0.2s ease;
+}
+
+.selected-option > .option{
+    width: 110px;
+    height: 110px;
+    border-color: blue;
+    border-style: dotted;
 }
 
 /* Player 2 Scissor Rotation Choice */
+#player2 .option > img[alt="Scissor"] {
+    transform: rotate(180deg) scale(1.1);
+}
+
+#player2 .option > {
+    cursor: not-allowed;
+    background-color: #80cbc4;
+}
 
 /* Reset Button */
+.reset {
+    display: inline-flex;
+    flex: 1 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.reset > span{
+    font-size: 1.8em;
+    cursor: pointer;
+    border: 1px solid red;
+    border-radius: 10%;
+    padding: 10px 15px;
+    background-color: #f44336;
+    box-shadow: 0 0 3px;
+    color: #fff;
+    transition: all 0.2s ease;
+}
+.reset > span:hover{
+    color: #000;
+}
