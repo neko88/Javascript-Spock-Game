@@ -8,7 +8,7 @@ const arr =[
     {image: "rock.png",
     name: "Rock"
     },
-    {image: "scissor.png",
+    {image: "scissors.png",
     name: "Scissor"
     },
     {image: "spock.png",
@@ -27,37 +27,24 @@ const rule = {
 const imagePath = "assets";
 
 /* get all of the elements of class or id: */
-const player1Options = document.querySelectorAll(
-   "#player1 .available-option .option"
-);
-const player2Options = document.querySelectorAll(
-"#player2 .available-option .option"
-);
-
-const player1Selected = document.querySelector(
-    "#player1 .selected-option .option"
-);
-const player2Selected = document.querySelector(
-    "#player2 .selected-option .option"
-);
-
-const player1Score = document.querySelector(
-    "#player1-score"
-);
-const player2Score = document.querySelector(
-    "#player2-score"
-);
-const roundMessage = document.querySelector("#round-message");
+const player1Options = document.querySelectorAll("#player1 .available-option .option"),
+    player2Options = document.querySelectorAll("#player2 .available-option .option"),
+    player1Selected = document.querySelector("#player1 .selected-option .option"),
+    player2Selected = document.querySelector("#player2 .selected-option .option"),
+    player1Score = document.querySelector("#player1-score"),
+    player2Score = document.querySelector("#player2-score"),
+    roundMessage = document.querySelector("#round-message");
 
 /*For each option, take element 'e' as function, add
 * event listener with type "click" and handle event as play(e)*/
 player1Options.forEach( (e)=> {
     e.addEventListener("click", ()=> {
         play(e);
-    })
-} );
+    });
+});
 
-const play = function(e){
+/* Play function */
+const play = (e)=> {
     /* Gets the index of the option selected by player. */
     const player1 = e.getAttribute("data-index");
     /* Number of options */
@@ -65,11 +52,12 @@ const play = function(e){
     /* Generate random number for player 2 selection. */
     const player2 = Math.floor(Math.random() * length);
 
+    /* Displays the visual of what player 1 selected. */
     showPlayerOption(player1, player1Selected);
+    showPlayerOption(player2, player2Selected);
     highlightSelectedOption(player1, player1Options);
-
     calculateScore (player1,player2);
-};
+}
 
 /* Generate an image element */
 const generateImgElement = (index) => {
@@ -79,25 +67,25 @@ const generateImgElement = (index) => {
     imgElement.alt = name;
     imgElement.title = name;
     return imgElement;
-};
+}
 
 /* Show playerOption */
 const showPlayerOption = (index, showArea ) => {
     const imgElement = generateImgElement(index);
     showArea.innerHTML = "";
     showArea.append(imgElement);
-};
+}
 
 const highlightSelectedOption = (index, options) => {
-    /* Removes active class from all options */
+    /* Removes active class from all the other non-selected options */
     options.forEach( (e) => {
         e.classList.remove("active");
     });
     /* Adds active class to the selected option  */
     options[index].classList.add("active");
-};
+}
 
-const addScore = (playerScore)=> {
+const addScore = (playerScore) => {
     const { innerHTML } = playerScore;
     playerScore.innerHTML = Number(innerHTML) + 1;
 }
@@ -107,7 +95,7 @@ const showMessage = (msg) => {
     roundMessage.innerHTML = msg;
 }
 
-const calculateScore = (player1, player2) =>{
+const calculateScore = (player1, player2) => {
     const player1Selected = arr[player1].name;
     const player2Selected = arr[player2].name;
     const player1Strength = rule[player1Selected];
@@ -122,9 +110,9 @@ const calculateScore = (player1, player2) =>{
         addScore(player2Score);
         showMessage("Player 2 Wins!");
     }
-};
+}
 
-const reset = ()=> {
+const reset = () => {
     player1Selected.innerHTML = "";
     player2Selected.innerHTML = "";
     roundMessage.innerHTML = "Choose your option";
@@ -136,6 +124,6 @@ const reset = ()=> {
     player2Options.forEach( (e)=> {
         e.classList.remove("active");
     });
-};
+}
 
 document.querySelector(".reset").addEventListener(("click"),reset);
